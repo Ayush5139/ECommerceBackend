@@ -44,6 +44,7 @@ const cartSchema = new Schema({
 
 const signupSchema = new Schema({
   email:String,
+  username:String,
   password:String
 })
 

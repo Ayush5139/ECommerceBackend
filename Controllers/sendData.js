@@ -1,6 +1,6 @@
 
 const { default: mongoose } = require("mongoose");
-const {cartModel, productDataModel, productModel} = require("../Data/producuts");
+const {cartModel, productDataModel, productModel, signupModel} = require("../Data/producuts");
 
 function sendData(req, res) {
     res.send(products)
@@ -127,5 +127,15 @@ async function updateOID(req,res){
     }
 }
 
+async function findUser(req,res){
+    const userid = req.params
+    console.log(userid.userId)
+    try{const response = await signupModel.find({_id:userid.userId})
+    res.send(response)}
+    catch(err){
+        console.log(err)
+    }
+}
 
-module.exports = { sendData, getData, getDataByCat, featuredData, addToCart,cartData,otherCartData,deleteFromCart,filteredData,filteredItem,updateCart,updateOID}
+
+module.exports = { sendData, getData, getDataByCat, featuredData, addToCart,cartData,otherCartData,deleteFromCart,filteredData,filteredItem,updateCart,updateOID,findUser}

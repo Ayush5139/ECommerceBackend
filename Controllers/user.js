@@ -16,6 +16,7 @@ async function signUp(req,res){
     console.log(response)
     const newObj={
         email:signUpData.data.email,
+        username:signUpData.data.username,
         password:hashedpass
     }
     const matched = await signupModel.find({email:signUpData.data.email})
