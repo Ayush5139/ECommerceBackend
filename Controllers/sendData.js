@@ -45,7 +45,6 @@ async function addToCart(req, res) {
         const response2 = await cartModel.find()
         res.send(response2)
     }
-    
 }
 
 async function cartData(req,res){
@@ -101,10 +100,12 @@ async function updateCart(req,res){
 }
 
 async function updateOID(req,res){
-    console.log(req.body.data.id)
+    // console.log(req.body.data.id)
+    // console.log(req.body.data.userID)
+    // console.log(await cartModel.find({_id:req.body.data.id , UserID:req.body.data.userID}))
     const response = await productModel.find({_id:req.body.data.id})
     console.log(response)
-    const responseCart = await cartModel.find({_id:req.body.id,UserID:req.body.data.userID})
+    const responseCart = await cartModel.find({_id:req.body.data.id,UserID:req.body.data.userID})
     console.log(responseCart)
     if(responseCart.length>0){
         try{const response1 = await cartModel.findByIdAndUpdate({_id:req.body.data.id},{$set:{countInCart:req.body.data.finalCount}})
