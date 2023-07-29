@@ -61,8 +61,8 @@ async function otherCartData(req,res){
     for (let i = 0; i < count; i++) {
         sum = sum + (response[i].price * response[i].countInCart)
     }
-    arr.push(count)
-    arr.push(sum)
+    await arr.push(count)
+    await arr.push(sum)
     res.send(arr)
 }
 
