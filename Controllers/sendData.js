@@ -138,5 +138,13 @@ async function findUser(req,res){
     }
 }
 
+async function deleteAll(req,res){
+    const userrrid = req.params.userrid
+    console.log(userrrid)
+    await cartModel.deleteMany({})
+    const response = await cartModel.find()
+    console.log("deleted",response)
+}
 
-module.exports = { sendData, getData, getDataByCat, featuredData, addToCart,cartData,otherCartData,deleteFromCart,filteredData,filteredItem,updateCart,updateOID,findUser}
+
+module.exports = { sendData, getData, getDataByCat, featuredData, addToCart,cartData,otherCartData,deleteFromCart,filteredData,filteredItem,updateCart,updateOID,findUser,deleteAll}

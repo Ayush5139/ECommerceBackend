@@ -1,4 +1,4 @@
-const { getData, getDataByCat, featuredData, addToCart, cartData, otherCartData, deleteFromCart, filteredData, filteredItem, dataFront, updateCart, updateOID, findUser } = require("../Controllers/sendData")
+const { getData, getDataByCat, featuredData, addToCart, cartData, otherCartData, deleteFromCart, filteredData, filteredItem, dataFront, updateCart, updateOID, findUser, deleteAll } = require("../Controllers/sendData")
 const { signUp, logIn } = require("../Controllers/user")
 
 const route = require("express").Router()
@@ -17,6 +17,7 @@ route.post("/signup",signUp)
 route.post("/login",logIn)
 route.post("/updateOID",updateOID)
 route.get("/:userId",findUser)
+route.get("/deleteall/:userrid",deleteAll)
 
 
 module.exports = {route}
